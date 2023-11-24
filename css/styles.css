@@ -1,0 +1,280 @@
+/**
+ * Базовые стили для всего сайта
+ */
+body {
+	position: relative;
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 16px;
+	line-height: 1.4;
+	color: #000;
+	min-width: 320px;
+	overflow-x: hidden;
+	height: auto;
+}
+
+
+/**
+ * Другие стили
+ */
+.navbar {
+	height: inherit;
+	width: 100%;
+	height: 50px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+}
+
+.navbar-container {
+	height: inherit;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;	
+}
+
+.navbar-menu {
+	height: inherit;
+	list-style-type: none;
+	padding-left: 0;
+	margin-bottom: 0;
+}
+
+.navbar-menu li {
+	height: inherit;
+	display: inline-block;
+}
+
+.navbar-menu li a {
+	height: inherit;
+	display: inline-block;
+	color: #000;
+	opacity: 0.6;
+	text-decoration: none;
+	padding: 10px;
+	transition: all .1s ease-in-out;
+	margin-top: -80px;
+}
+
+.navbar-menu li a:hover {
+	height: inherit;
+	opacity: 1;
+
+}
+
+.navbar-wrap {
+	height: inherit;
+	float: right;
+    text-align: left;
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+.callback {
+	height: 35px;
+	margin-left: 20px;
+	padding: 10px 30px;
+	background-color: coral;
+	border-radius: 90px;
+	color: #fff;
+	text-decoration: none; 
+	box-shadow: 0 4px 6px rgba(255, 127, 80, 0.2);
+	transition: all .1s ease-out;
+	margin-top: 5px;
+}
+
+.callback:hover {
+	height: inherit;
+	transform: scale(1.04);
+	color: #fff;
+	box-shadow: 0 9px 9px rgba(255, 68, 0, 0.5);
+}
+
+.navbar-brand {
+	height: inherit;
+	font-weight: 700;
+	font-size: 26px;
+	text-decoration: none;
+	color: #000;
+	transition: all .3s ease-in-out;
+	margin-top: 50px;
+}
+
+.navbar-brand:hover {
+	height: inherit;
+	color: cornflowerblue;
+}
+
+.text-uppercase {
+	text-align: center;
+}
+
+.days-h3 {
+	text-align: center;
+}
+
+body {
+    background-color: #f0f0f0; /* Світло-сірий колір фону сайту */
+    color: #333; /* Колір тексту на сайті */
+}
+
+.card {
+    background-color: #fff; /* Колір фону для кожної карточки */
+    /* Додайте інші стилі для карточки, які ви вже маєте */
+}
+
+.col-lg-12 {
+	margin-top: 50px;
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 13.5%;
+	background: rgba(0, 0, 0, 0.3); /* чорний колір з напівпрозорістю */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	z-index: 1; /* забезпечує, що overlay буде вище слайду */
+	pointer-events: none;
+	margin-top: 53px;
+  }
+  
+  .overlay-text {
+	color: white;
+	font-size: 24px;
+	font-weight: bold;
+  }
+
+  .slide-text {
+	color: #fff;
+	font-size: 18px;
+	position: absolute;
+	bottom: 50px; /* Відстань від нижнього краю */
+	width: 100%;
+	text-align: center;
+	}
+  .overlay-text h1 {
+    font-size: 2em; /* Змінено розмір шрифту за замовчуванням */
+    margin: 0;
+  }
+  
+  #Contacts {
+	background-color: white;
+  }
+
+  .contacts-h3 {
+	font-size: 30px;
+	text-transform: uppercase;
+  }
+
+  .contacts-h4 {
+	font-size: 23px;
+	font-weight: 400;
+	padding-left: 45px;
+  }
+
+  .contacts-ul {
+	list-style: none;
+	font-size: 20px;
+	padding-left: 10px;
+	margin-bottom: 10px;
+  }
+
+  .contacts-li {
+	padding-top: 15px;
+	padding-bottom: 15px;
+  }
+
+  .contacts-li:last-child {
+	padding-top: 0px;
+	padding-bottom: 0px;
+  }
+
+  .contacts-li-2 {
+	padding-bottom: 0px;
+  }
+
+  .contacts-icons {
+	color: #23aa38;
+	font-size: 20px;
+	padding-right: 10px;
+  }
+
+  .contact-number-span-1 {
+	margin-left: -5px;
+  }
+
+  .contact-number-span-2 {
+	padding-left: 35px;
+	padding-top: 14px;
+  }
+
+  .contacts-a {
+	color: #235404;
+	margin-left: 10px;
+	transition: all .2s;
+  }
+
+  .contacts-a:hover {
+	color: #23aa38;
+  }
+  
+  .left-column {
+    text-align: left;
+}
+
+.right-column {
+    text-align: right;
+}
+
+.card-container {
+	display: flex;
+	justify-content: center;
+	gap: 50px;
+}
+
+.card {
+	width: 300px;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	padding: 20px;
+	text-align: center;
+	font-family: Arial, sans-serif;
+}
+
+.profile-pic {
+	width: 200px;
+	height: 200px;
+	border-radius: 10%;
+	object-fit: cover;
+	margin-bottom: 15px;
+}
+
+.name {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.position {
+	font-style: italic;
+	color: #555;
+}
+
+.center {
+	margin-right: 155px;
+	margin-left: 155px;
+}
+
+.map {
+	width: 100%; /* Встановіть ширину відсотка, щоб адаптувати до ширини контейнера */
+	height: 500px; /* Встановіть висоту, як вам потрібно */
+}
+
+.map-container {
+	margin: 130px; /* Додайте відступи, які вам потрібно */
+}
+
+
+  
