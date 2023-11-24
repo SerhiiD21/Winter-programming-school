@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Зимова школа програмування</title>
+
+	<!-- Bootstrap reboot (для сброса стилей) -->
+	<link rel="stylesheet" href="libs/bootstrap-reboot.min.css">
+
+	<!-- Bootstrap сетка -->
+	<link rel="stylesheet" href="libs/bootstrap-grid.min.css">
+
+	<!-- Шрифты с Google Fonts -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+	<!-- Стили сайта -->
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+	<nav class="navbar">
+		<div class="container">
+			<a href="#" class="navbar-brand">Зимова школа програмування</a>
+			<img class="navbar-brand" src="шапка.png" alt=""/>
+			<div class="navbar-wrap">
+			    <ul class="navbar-menu">
+					<li><a href="#home">Головнa</a></li>
+					<li><a href="#accordion">Курси</a></li>
+					<li><a href="#contact">Контакти</a></li>
+				</ul>
+				<a href="#course" class="callback">Реєстрація</a>
+			</div>
+		</div>
+	</nav>
+
+	<style>
+		* {box-sizing: border-box}
+		body {font-family: Verdana, sans-serif; margin:0}
+		.mySlides {display: none}
+		img {vertical-align: middle;}
+	
+		/* Slideshow container */
+		.slideshow-container {
+		  max-width: 100%;
+		  max-height: 100vh;
+		  margin-top: 3px;
+		}
+	
+		/* Next & previous buttons */
+		.prev, .next {
+		  cursor: pointer;
+		  position: absolute;
+		  top: 100%;
+		  width: auto;
+		  padding: 16px;
+		  margin-top: -22px;
+		  color: white;
+		  font-weight: bold;
+		  font-size: 18px;
+		  transition: 0.6s ease;
+		  border-radius: 0 3px 3px 0;
+		}
+	
+		/* Position the "next button" to the right */
+		.next {
+		  right: 0;
+		  border-radius: 3px 0 0 3px;
+		}
+	
+		/* On hover, add a black background color with a little bit see-through */
+		.prev:hover, .next:hover {
+		  background-color: rgba(0,0,0,0.8);
+		}
+	
+		/* Caption text */
+		.text {
+		  color: #f2f2f2;
+		  font-size: 15px;
+		  padding: 8px 12px;
+		  position: absolute;
+		  bottom: 8px;
+		  width: 100%;
+		  text-align: center;
+		}
+	
+		/* Number text (1/3 etc) */
+		.numbertext {
+		  color: #f2f2f2;
+		  font-size: 12px;
+		  padding: 8px 12px;
+		  position: absolute;
+		  top: 0;
+		}
+	
+		/* The dots/bullets/indicators */
+		.dot {
+		  cursor: pointer;
+		  height: 15px;
+		  width: 15px;
+		  margin: 0 2px;
+		  background-color: #bbb;
+		  border-radius: 50%;
+		  display: inline-block;
+		  transition: background-color 0.6s ease;
+		}
+	
+		.active, .dot:hover {
+		  background-color: #717171;
+		}
+	
+		/* Fading animation */
+		.fade {
+		  -webkit-animation-name: fade;
+		  -webkit-animation-duration: 1.5s;
+		  animation-name: fade;
+		  animation-duration: 1.5s;
+		}
+	
+		@-webkit-keyframes fade {
+		  from {opacity: .4} 
+		  to {opacity: 1}
+		}
+	
+		@keyframes fade {
+		  from {opacity: .4} 
+		  to {opacity: 1}
+		}
+	
+		/* On smaller screens, decrease text size */
+		@media only screen and (max-width: 300px) {
+		  .prev, .next,.text {font-size: 11px}
+		}
+	
+		.mySlides {
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  text-align: center;
+		  width: 100%;
+		  height: 100vh; /* Встановити висоту слайду на весь екран */
+		  position: relative;
+		}
+	
+		.mySlides img {
+		  width: 100%;
+		  height: 100%;
+		  object-fit: cover; /* Забезпечити заповнення контейнера */
+		}
+
+	  </style>
+	</head>
+	<body>
+	
+	<div class="slideshow-container">
+	
+	  <div class="mySlides fade">
+		<div class="numbertext"></div>
+		<img src="Новорічні прикраси.jpg" style="width:100%">
+		<p class="slide-text">ВИВЧАЙ HTML З НУЛЯ</p>
+	  </div>
+	
+	  <div class="mySlides fade">
+		<div class="numbertext"></div>
+		<img src="Новорічні прикраси 2.jpg" style="width:100%">
+		<p class="slide-text">ОСНОВИ CSS</p>
+	  </div>
+	
+	  <div class="mySlides fade">
+		<div class="numbertext"></div>
+		<img src="Новорічні прикраси 3.jpg" style="width:100%">
+		<p class="slide-text">JAVA SCRIPT - ЩО ЦЕ ТАКЕ</p>
+	  </div>
+
+	  <div class="overlay">
+		<div class="overlay-text"><h1>Зимова школа програмування</h1></div>
+	  </div>
+	  
+	  
+	
+	  	<a class="prev" onclick="plusSlides(-1)">
+		<a class="next" onclick="plusSlides(1)">❯</a>
+		
+		</div>
+		<br>
+		
+		<div style="text-align:center">
+		  <span class="dot" onclick="currentSlide(1)"></span> 
+		  <span class="dot" onclick="currentSlide(2)"></span> 
+		  <span class="dot" onclick="currentSlide(3)"></span> 
+		</div>
+		
+		<script>
+		var slideIndex = 1;
+		showSlides(slideIndex);
+		
+		function plusSlides(n) {
+		  showSlides(slideIndex += n);
+		}
+		
+		function currentSlide(n) {
+		  showSlides(slideIndex = n);
+		}
+		
+		function showSlides(n) {
+		  var i;
+		  var slides = document.getElementsByClassName("mySlides");
+		  var dots = document.getElementsByClassName("dot");
+		  if (n > slides.length) {slideIndex = 1}    
+		  if (n < 1) {slideIndex = slides.length}
+		  for (i = 0; i < slides.length; i++) {
+			  slides[i].style.display = "none";  
+		  }
+		  for (i = 0; i < dots.length; i++) {
+			  dots[i].className = dots[i].className.replace(" active", "");
+		  }
+		  slides[slideIndex-1].style.display = "block";  
+		  dots[slideIndex-1].className += " active";
+		}
+		</script>
+
+<!-- About Course -->
+<div id="home" class="center">
+    <h1 style="text-align: center;">ПРО ЗИМОВУ ШКОЛУ ПРОГРАМУВАННЯ</h1>
+    <p style="font-size: 17px;"><b>Запрошення від Волинського коледжу Національного університету харчових технологій - прийняти участь у II Зимовій школі програмування для учнів 9-11 класів, учнів професійно-технічних училищ та студентів технікумів та коледжів міста Луцька.</b></p><br>
+    <p style="font-size: 20px;"><b>Важливо! Реєстрація на курси відкриється 15 грудня і триватиме до 31 грудня 2023 року.</b></p><br>
+    <p style="font-size: 17px;">Мета цієї школи - надати можливість школярам, учням та студентам продемонструвати свою вправність у створенні алгоритмів та програм за допомогою високорівневих мов програмування. Також, підвищити рівень знань у предметах, пов'язаних з програмуванням та алгоритмізацією.</p><br>
+</div>
+
+<script>
+    document.querySelector('a[href="#home"]').addEventListener('click', function() {
+        window.location.href = '#home';
+    });
+</script>
+
+  <section class="pt-2 pb-3" id="Program-Day">
+    <div class="container">
+      <div id="accordion">
+        <h1 class="days-h3">Перелік курсів</h1>
+
+		<script>
+			document.querySelector('a[href="#accordion"]').addEventListener('click', function() {
+				window.location.href = '#accordion';
+			});
+		</script>
+
+	<style>
+		.carder {
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+			transition: 0.3s;
+			width: 40%;
+		}
+		
+		.carder:hover {
+			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+		}
+		
+		.container {
+			padding: 2px 16px;
+		}
+		</style>
+		</head>
+		<body>
+
+			<style>
+				#carder-cont {
+				  display: flex;
+				  justify-content: space-around;
+				  align-items: center;
+				  height: 100vh;
+				  margin: 0 -15px;
+				}
+			  
+				.carder {
+				  width: 20%;
+				  height: 300px;
+				  border: 1px solid #ccc;
+				  background-color: #ffffff;
+				  border-radius: 10px;
+				  overflow: hidden;
+				  top: 50%;
+				  margin: 0 -15px;
+				  transition: transform 0.3s ease, box-shadow 0.3s ease;
+				  gap: -100px;
+				}
+			  
+				.carder:hover {
+				  border-color: rgb(150, 150, 150);
+				  transform: scale(1.05);
+        		  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+				}
+			  
+				.cont {
+				  text-align: center;
+				  padding: 20px;
+				  height: 100%;
+				  display: flex;
+				  flex-direction: column;
+				  justify-content: space-between;
+				  margin: 0 -15;
+				  transition: background-color 0.3s ease; /* Додано анімацію переходу фонового кольору */
+				}
+			  
+				.carder:hover .cont {
+				  background-color: rgb(216, 214, 214); /* Колір фону при наведенні миші на карточку */
+				}
+			  
+				.cont img {
+				  width: 70%;
+				  margin: 0 auto;
+				  display: block;
+				  border-radius: 50%;
+				}
+			  
+				h5 {
+				  margin: 0;
+				  margin-top: 10px;
+				}
+			  
+				.call {
+				  margin: 10px;
+				  padding: 10px;
+				  font-size: 14px;
+				  background-color: rgb(48, 25, 252);
+				  border-radius: 100px;
+				  color: #fff;
+				  text-decoration: none;
+				  box-shadow: 0 4px 6px rgba(255, 127, 80, .2);
+				  transition: all .1s ease-out;
+				}
+
+				.carder:nth-child(1) .call {
+    			background-color: rgb(79, 70, 148);
+    			color: #fff;
+				box-shadow: 0 4px 20px rgb(63, 53, 151)
+ 				}
+
+  				.carder:nth-child(2) .call {
+    			background-color: rgb(160, 48, 48);
+    			color: #fff;
+				box-shadow: 0 4px 20px rgb(158, 34, 34);
+  				}
+
+  				.carder:nth-child(3) .call {
+   				 background-color: rgb(58, 145, 58);
+    			color: #fff;
+				box-shadow: 0 4px 20px rgb(31, 145, 31);
+ 				}
+			  
+				.call:hover {
+				  transform: scale(1.1);
+				  color: #fff;
+				  box-shadow: 0 12px 20px rgba(11, 35, 252, 0.5);
+				  background-color: rgb(48, 25, 252);
+				}
+			  </style>
+			  
+			  <div style="display: flex; justify-content: space-around;">
+				<div class="carder">
+				  <div class="cont">
+					<img src="Курси.png" alt="Курси">
+					<h5><b>ВИВЧАЙ HTML З НУЛЯ</b></h5>
+					<a href="https://forms.gle/t7ZnemMDeLafXPWg6" class="call">Зареєструватись</a>
+				  </div>
+				</div>
+			  
+				<div class="carder">
+				  <div class="cont">
+					<img src="Все для студентів.jpg" alt="">
+					<h5><b>ОСНОВИ CSS</b></h5>
+					<a href="https://forms.gle/PFUv5UGr5nXJAWnQ8" class="call">Зареєструватись</a>
+				  </div>
+				</div>
+			  
+				<div class="carder">
+				  <div class="cont">
+					<img src="Розклад курсів.jpg" alt="">
+					<h5><b>JAVA SCRIPT - ЩО ЦЕ ТАКЕ</b></h5>
+					<a href="https://forms.gle/1uo5ka5MXJ8zUcEr5" class="call">Зареєструватись</a>
+				  </div>
+				</div>
+			  </div>
+
+			  <style>
+				.registration-text {
+            	text-align: center;
+            	color: red;
+            	font-family: Arial, sans-serif;
+        		}
+			</style>
+
+			  <section class="pt-5 pb-5" id="About-Course">
+				<div class="container">
+				  <h2 class="text-uppercase text-center mb-4 header-h3"></h2>
+				  <div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-12">
+			
+						<div id="course" class="registration-text">
+							<h3><b> УВАГА! Реєстрація на курси почнеться з 15 грудня і триватиме до 31 грудня 2023 р.</b></h3>
+						</div> 
+					   
+					</div>
+				  </div>
+				</div>
+
+				<script>
+					document.querySelector('a[href="#course"]').addEventListener('click', function() {
+						window.location.href = '#course';
+					});
+				</script>
+			  
+				<style>
+					.course-card {
+						width: 100%;
+						max-width: 1000px;
+						border: 1px solid #ccc;
+						padding: 20px;
+						margin: 20px auto;
+						cursor: pointer;
+						background-color: #ffffff;
+						border-radius: 10px;
+						transition: border-color 0.3s ease;
+					}
+
+					.course-card:hover {
+        				border-color: #000; /* Змінюємо колір контуру при наведенні мишки */
+    				}
+			
+					.course-description {
+						display: none;
+						margin-top: 10px;
+					}
+
+					.course-card hr {
+           	 			margin: 15px 0;
+            			border: 0;
+            			border-top: 1px solid #ccc;
+						background-color: #000;
+        			}
+
+					.arrow-down {
+            		position: absolute;
+            		top: 10px;
+            		right: 10px;
+            		font-size: 20px;
+           		 	cursor: pointer;
+            		transition: transform 0.3s ease;
+        			}
+
+        			.course-card.open .arrow-down {
+            		transform: rotate(180deg);
+        			}
+				</style>
+			</head>
+			<body>
+			
+				<div class="course-card" onclick="toggleCourseDescription('course-description1')">
+					<h2>ВИВЧАЙ HTML З НУЛЯ</h2>
+					<hr>
+					<div class="course-description" id="course-description1">
+						<p><strong>Основи HTML:</strong></p><br>	
+						<p>Розглядаючи структуру HTML-документів, ви вивчите теги, атрибути та їх призначення. Розуміння правильного використання тегів - ключ до створення добре структурованих сторінок.</p><br>
+						<p><strong>Форми і введення даних:</strong></p><br>
+						<p>Детально розглянемо роботу з формами, включаючи введення тексту, кнопки, вибір опцій та інші елементи. Навчимося обробляти дані, які вводять користувачі.</p><br>
+						<p><strong>Зображення і мультимедіа:</strong></p><br>
+						<p>Ви дізнаєтеся, як вставляти зображення та відео на ваші сторінки, оптимізувати їх розміри та використовувати атрибути для поліпшення взаємодії з користувачами.</p><br>
+						<p><strong>Семантичні елементи:</strong></p><br>
+						<p>Важливий аспект веб-розробки - це розуміння семантики. Ми розглянемо семантичні теги, такі як header, nav, section, article та інші, і дізнаємося, як вони полегшують розуміння структури документа.</p><br>
+						<p><strong>Зовнішні таблиці стилів (CSS):</strong></p><br>
+						<p>Хоч HTML визначає структуру сторінок, для їх зовнішнього вигляду ми використовуємо CSS. Знання основ CSS допоможе вам створювати стильні та естетично приємні веб-сайти.</p><br>
+					</div>
+				</div>
+			
+				<div class="course-card" onclick="toggleCourseDescription('course-description2')">
+					<h2>ОСНОВИ CSS</h2>
+					<hr>
+					<div class="course-description" id="course-description2">
+						<p><strong>Модуль 1: Вступ до CSS</strong></p>
+						<ul>
+							<li>Ознайомлення з основами CSS: що це таке і як вона працює.</li>
+							<li>Синтаксис CSS: властивості, значення, селектори.</li>
+						</ul>
+						<p><strong>Модуль 2: Робота з Кольорами та Фонами</strong></p>
+						<ul>
+							<li>Використання кольорів та градієнтів для створення привабливих веб-сторінок.</li>
+							<li>Налаштування фонів для досягнення бажаного ефекту.</li>
+						</ul>
+						<p><strong>Модуль 3: Робота з Текстом та Шрифтами</strong></p>
+						<ul>
+							<li>Налаштування вигляду тексту: розмір, колір, стиль.</li>
+							<li>Вибір та інтеграція шрифтів для створення унікального стилю.</li>
+						</ul>
+						<p><strong>Модуль 4: Розмітка та Позиціонування</strong></p>
+						<ul>
+							<li>Використання блоків та лінійного позиціонування для створення структури сторінки.</li>
+							<li>Розуміння принципів box model.</li>
+						</ul>
+						<p><strong>Модуль 5: Адаптивний Дизайн та Медіа-запити</strong></p>
+						<ul>
+							<li>Основи адаптивного дизайну для оптимізації веб-сайту на різних пристроях.</li>
+							<li>Використання медіа-запитів для реакції на зміни розміру екрану.</li>
+						</ul>
+						<p><strong>Модуль 6: Трансформації та Анімації</strong></p>
+						<ul>
+							<li>Впровадження трансформацій для створення ефектних змін у вигляді елементів.</li>
+							<li>Додавання анімацій для зроблення веб-сайту динамічним та привабливим.</li>
+						</ul>
+					</div>
+				</div>
+			
+				<div class="course-card" onclick="toggleCourseDescription('course-description3')">
+					<h2>JAVA SCRIPT - ЩО ЦЕ ТАКЕ</h2>
+					<hr>
+					<div class="course-description" id="course-description3">
+						<p><strong>Основи програмування на JavaScript:</strong></p><br>	
+						<p>Розглядаючи базові концепції, такі як змінні, оператори, цикли та умови, ви отримаєте розуміння того, як створювати ефективний та логічний код.</p><br>
+						<p><strong>Робота з об'єктами та функціями:</strong></p><br>
+						<p>Детально розглянемо об'єкти та функції, які є основними будівельними блоками JavaScript. Навчимося створювати об'єкти, визначати методи та використовувати функції для досягнення конкретних завдань.</p><br>
+						<p><strong>Робота з подіями та обробниками:</strong></p><br>
+						<p>Ви дізнаєтеся, як реагувати на події, такі як кліки миші чи введення користувача, і вивчите, як ефективно використовувати обробники подій для створення динамічних та інтерактивних веб-сайтів.</p><br>
+						<p><strong>Робота з масивами та рядками:</strong></p><br>
+						<p>Вивчите основи роботи з масивами та рядками, які дозволять вам ефективно обробляти та модифікувати дані на веб-сторінках.</p><br>
+						<p><strong>Взаємодія з DOM:</strong></p><br>
+						<p>Розберемося з Document Object Model (DOM) та навчимося змінювати структуру HTML-документів за допомогою JavaScript для динамічного оновлення вмісту сторінки без перезавантаження.</p><br>
+					</div>
+				</div>
+			
+				<script>
+					function toggleCourseDescription(descriptionId) {
+						var description = document.getElementById(descriptionId);
+						if (description.style.display === "block") {
+							description.style.display = "none";
+						} else {
+							description.style.display = "block";
+						}
+					}
+				</script>
+
+<style>
+	body {
+		font-family: Verdana, sans-serif;
+		margin: 0;
+	}
+
+	.contain {
+		text-align: center;
+	}
+
+	.header-h3 {
+		font-size: 3em; /* Змініть це значення на те, яке вам підходить */
+	}
+</style>
+				
+<section class="pt-5 pb-1" id="Our-Team">
+    <div class="contain">
+		<h2 style="font-size: 35px; text-align: center;">Наші досягнення</h2>
+
+		<style>
+			.containers {
+				max-width: 1000px;
+				padding: 20px;
+				border: 1px solid #ffffff;
+				border-radius: 10px;
+				margin: 20px auto;
+				cursor: pointer;
+				background-color: #ffffff;
+				transition: border-color 0.3s ease;
+			}
+		
+			.frame {
+				display: flex;
+				justify-content: space-around;
+				margin-top: 20px;
+			}
+		
+			.cards {
+				width: 500px;
+				height: 400px;
+				border: 1px solid #929292;
+				border-radius: 8px;
+				padding: 10px;
+				margin: 10px;
+				text-align: center;
+			}
+		
+			.cards img {
+				max-width: 100%;
+				max-height: 100%;
+				border-radius: 4px;
+				margin-bottom: 10px;
+			}
+		
+			.cards a {
+				text-decoration: none;
+				color: inherit;
+				display: block;
+			}
+		
+			.cards a:hover {
+				text-decoration: underline;
+			}
+		</style>
+</head>
+<body>
+    <div class="containers">
+        <div class="frame">
+            <div class="cards">
+				<a href="https://vcolnuft.volyn.ua/chergova-peremoga-vykladachiv-koledzhu-u-vseukrayinskomu-konkursi/"></a>
+                <img src="image-12-768x576.png" alt="" onclick="window.location.href='https://vcolnuft.volyn.ua/chergova-peremoga-vykladachiv-koledzhu-u-vseukrayinskomu-konkursi/';">
+                <h3>Чергова перемога викладачів коледжу у Всеукраїнському конкурсі</a></h3>
+                <p><a href="https://vcolnuft.volyn.ua/chergova-peremoga-vykladachiv-koledzhu-u-vseukrayinskomu-konkursi/" style="text-decoration: none; color: inherit;">ДЕТАЛЬНІШЕ...</a></p>
+            </div>
+            <div class="cards">
+				<a href="https://vcolnuft.volyn.ua/zustrich-zdobuvachiv-osvity-z-predstavnykamy-it-sfery/"></a>
+                <img src="photo_2023-06-18_14-01-33-768x576.jpg" alt="" onclick="window.location.href='https://vcolnuft.volyn.ua/zustrich-zdobuvachiv-osvity-z-predstavnykamy-it-sfery/';">
+                <h3>Зустріч здобувачів освіти з представниками ІТ-сфери</h3>
+                <p><a href="https://vcolnuft.volyn.ua/zustrich-zdobuvachiv-osvity-z-predstavnykamy-it-sfery/" style="text-decoration: none; color: inherit;">ДЕТАЛЬНІШЕ...</a></p>
+            </div>
+            <div class="cards">
+				<a href="https://vcolnuft.volyn.ua/onlajn-urok-iz-kiberbezpeky-ya-bezpeka-kiberprostir/"></a>
+                <img src="photo.jpg" alt="" onclick="window.location.href='https://vcolnuft.volyn.ua/onlajn-urok-iz-kiberbezpeky-ya-bezpeka-kiberprostir/';">
+                <h3>Oнлайн-урок із кібербезпеки «Я. Безпека. Кіберпростір»</h3>
+				<p><a href="https://vcolnuft.volyn.ua/onlajn-urok-iz-kiberbezpeky-ya-bezpeka-kiberprostir/" style="text-decoration: none; color: inherit;">ДЕТАЛЬНІШЕ...</a></p>
+            </div>
+        </div>
+    </div>
+
+	<h2 style="font-size: 35px; text-align: center;">Викладачі</h2>
+
+	<div class="card-container">
+		<div class="card">
+		  <img class="profile-pic" src="Галина Степанівна.jpg" alt="">
+		  <div class="name">Шепелюк Галина Степанівна</div>
+		  <div class="position">Організатор Зимової школи програмування. Кваліфікаційна категорія «спеціаліст вищої категорії», викладач-методист</div>
+		</div>
+		<div class="card">
+		  <img class="profile-pic" src="Олександр Юрійович.jpg" alt="">
+		  <div class="name">Ройко Олег Юрійович</div>
+		  <div class="position">Голова циклової випускової комісії, кандидат технічних наук, кваліфікаційна категорія «спеціаліст вищої категорії», викладач-методист</div>
+		</div>
+		<div class="card">
+		  <img class="profile-pic" src="Олександр Вікторович.jpg" alt="">
+		  <div class="name">Бурбан Олександр Вікторович</div>
+		  <div class="position">Кандидат фізико-математичних наук, кваліфікаційна категорія «спеціаліст вищої категорії», викладач-методист</div>
+		</div>
+	  </div>
+
+	  <div class="card-container">
+		<div class="card">
+		  <img class="profile-pic" src="Володимир Леонідович.jpg" alt="">
+		  <div class="name">Величко Володимир Леонідович</div>
+		  <div class="position">Кваліфікаційна категорія «спеціаліст вищої категорії», викладач-методист, завідувач відділення інформатики та компʼютерної техніки</div>
+		</div>
+		<div class="card">
+		  <img class="profile-pic" src="Олег Олександрович.jpg" alt="">
+		  <div class="name">Ройко Олег Олександрович</div>
+		  <div class="position">Кваліфікаційна категорія «спеціаліст вищої категорії», викладач-методист</div>
+		</div>
+		<div class="card">
+		  <img class="profile-pic" src="Юлія Анатолівна.jpg" alt="">
+		  <div class="name">Удовицька Юлія Анатоліївна</div>
+		  <div class="position">Кандидат фізико-математичних наук, кваліфікаційна категорія «спеціаліст вищої категорії»</div>
+		</div>
+	  </div>
+
+<!-- Місцезнаходження -->
+<div id="contact">
+<h2 style="font-size: 35px; text-align: center;">Місце знаходження:</h2>
+</div>
+<script>
+    document.querySelector('a[href="#contact"]').addEventListener('click', function() {
+        window.location.href = '#contact';
+    });
+</script>
+
+<div class="map-container">
+    <iframe src="https://snazzymaps.com/embed/114807" class="map"></iframe>
+</div>
+  <ul>
+	<li style="display: flex; align-items: center;">
+	  <img src="https://cdn-icons-png.flaticon.com/512/63/63633.png" style="width: 20px; margin-right: 10px;">
+	  <span style="font-size: 20px;">вул. Кафедральна, 6, м. Луцьк, Україна, 43016</span>
+	</li>
+  </ul>        
+  <ul>
+	<li style="display: flex; align-items: center;">
+	  <img src="https://papik.pro/uploads/posts/2021-12/thumbs/1639191575_3-papik-pro-p-telefon-klipart-5.png" style="width: 20px; margin-right: 10px;">
+	  <span style="font-size: 20px;">(0332) 721 217 - приймальна директора ВоФК НУХТ</span>
+  </ul>
+<ul>
+  <li style="display: flex; align-items: center;">
+	<img src="https://imgpng.ru/d/phone_PNG49042.png" style="width: 20px; margin-right: 10px;">
+	<span style="font-size: 20px;">066 079 9579 - Шепелюк Галина Степанівна - організатор Зимової школи</span>
+</ul>
+<ul>
+  <li style="display: flex; align-items: center;">
+	<img src="https://banner2.cleanpng.com/20180627/rk/kisspng-email-computer-icons-clip-art-red-envelope-letter-5b333cede1c257.6554999115300845899247.jpg" style="width: 20px; margin-right: 10px;">
+	<span style="font-size: 20px;">vocnuft@gmail.com</span>
+</ul>
+<ul>
+<li style="display: flex; align-items: center;">
+  <img src="https://cdn-icons-png.flaticon.com/512/25/25333.png" style="width: 20px; margin-right: 10px;">
+  <span style="font-size: 20px;">Виникли питання? <a href="https://docs.google.com/forms/d/1SutQsnXurfWarHhfGo_HYZJTXRx_hS82RnE71phY3Io/viewform?edit_requested=true" style="font-size: 20px; font-family: Arial, Helvetica, sans-serif;">Задайте їх тут</a></span>
+  </ul>
+</div>
+</div>
+</main>
+
+<svg>
+  <defs>
+	<clipPath id="svgPath" clipPathUnits="objectBoundingBox" transform="scale(0.00083 0.0075)">
+	  <path d="M1397,490H204c263,0,160-32,371-33,191.52-.91,150.49-135.14,225-92C990,475,1144,490,1397,490Z" transform="translate(-178 -350.46)" />
+	</clipPath>
+  </defs>
+</svg>
+
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: Arial, sans-serif;
+	}
+
+	.footer {
+		background-color: #ffffff;
+		padding: 20px;
+		text-align: center;
+		border: 1px solid rgb(190, 190, 190);
+		border-radius: 10px;
+	}
+
+	p {
+		margin: 0;
+		font-size: 14px;
+		color: #555;
+	}
+
+	a {
+		color: #3498db;
+		text-decoration: none;
+	}
+</style>
+</head>
+
+<body>
+<!-- Your page content here -->
+
+<div class="footer">
+	<p>&copy; 2023 Волинський фаховий коледж Національного університету харчових технологій. Усі права захищено.</a></p>
+</div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/jquery-snowfall@1.7.4/dist/snowfall.jquery.min.js" ></script>
+<script>
+$(document).ready(function(){
+var zindex = 10;
+
+$("div.card").click(function(e){
+e.preventDefault();
+
+var isShowing = false;
+
+if ($(this).hasClass("show")) {
+isShowing = true
+}
+
+if ($("div.cards").hasClass("showing")) {
+$("div.card.show")
+  .removeClass("show");
+
+if (isShowing) {
+  $("div.cards")
+	.removeClass("showing");
+} else {
+  $(this)
+	.css({zIndex: zindex})
+	.addClass("show");
+
+}
+
+zindex++;
+
+} else {
+$("div.cards")
+  .addClass("showing");
+$(this)
+  .css({zIndex:zindex})
+  .addClass("show");
+
+zindex++;
+}
+
+});
+});
+
+setTimeout(function (argument) {
+$(document).snowfall({flakeCount : 100, minSize:1, maxSize:4, round: 20});
+}, 1000);
+
+</script>
+<script>
+function toggleAccordion(elementId) {
+const collapseElement = document.getElementById(elementId);
+collapseElement.classList.toggle("show");
+}
+class BeerSlider {
+constructor(element, { start = "50" } = {}) {
+this.start = parseInt(start)
+? Math.min(100, Math.max(0, parseInt(start)))
+: 50;
+this.element = element;
+this.revealContainer = this.element.children[1];
+this.revealElement = this.revealContainer.children[0];
+this.range = this.addElement("input", {
+type: "range",
+class: `beer-range`,
+"aria-label": "Percent of revealed content",
+"aria-valuemin": "0",
+"aria-valuemax": "100",
+"aria-valuenow": this.start,
+value: this.start,
+min: "0",
+max: "100"
+});
+this.handle = this.addElement("span", {
+class: `beer-handle`
+});
+this.onImagesLoad();
+this.addListeners(); 
+this.init(); 
+}
+init() {
+this.element.classList.add(`beer-ready`);
+this.move();
+}
+loadingImg(src) {
+return new Promise((resolve, reject) => {
+if (!src) {
+  resolve();
+}
+const img = new Image();
+img.onload = () => resolve();
+img.onerror = () => reject();
+img.src = src;
+});
+}
+loadedBoth() {
+const mainImageSrc =
+this.element.children[0].src ||
+this.element.children[0].getAttribute(`data-beer-src`);
+const revealImageSrc =
+this.revealElement.src ||
+this.revealElement.getAttribute(`data-beer-src`);
+return Promise.all([
+this.loadingImg(mainImageSrc),
+this.loadingImg(revealImageSrc)
+]);
+}
+onImagesLoad() {
+if (!this.revealElement) {
+return;
+}
+this.loadedBoth().then(
+() => {
+  this.init();
+},
+() => {
+  console.error("Some errors occurred and images are not loaded.");
+}
+);
+}
+addElement(tag, attributes) {
+const el = document.createElement(tag);
+Object.keys(attributes).forEach((key) => {
+el.setAttribute(key, attributes[key]);
+});
+this.element.appendChild(el);
+return el;
+}
+addListeners() {
+const eventTypes = ["input", "change"];
+eventTypes.forEach((i) => {
+this.range.addEventListener(i, () => {
+  this.move();
+});
+});
+}
+move() {
+this.revealContainer.style.setProperty("--width", `${this.range.value}%`);
+this.handle.style.left = `${this.range.value}%`;
+this.range.setAttribute("aria-valuenow", this.range.value);
+if (this.range.value > 55) {
+this.element.classList.add("more");
+} else {
+this.element.classList.remove("more");
+if (this.range.value < 45) {
+  this.element.classList.add("less");
+} else {
+  this.element.classList.remove("less");
+}
+}
+}
+}
+const slider = new BeerSlider(document.getElementById("slider"), { start: 30 });
+move() 
+{
+const currentValue = this.range.value;
+const totalImages = this.element.children.length;
+const imageToShow = Math.round((totalImages - 1) * (currentValue / 100));
+for (let i = 0; i < totalImages; i++) {
+if (i === imageToShow) {
+this.element.children[i].style.display = "block";
+} else {
+this.element.children[i].style.display = "none";
+}
+}
+this.revealContainer.style.setProperty("--width", `${this.range.value}%`);
+this.handle.style.left = `${this.range.value}%`;
+this.range.setAttribute("aria-valuenow", this.range.value);
+if (this.range.value > 55) {
+this.element.classList.add("more");
+} else {
+this.element.classList.remove("more");
+if (this.range.value < 45) {
+this.element.classList.add("less");
+} else {
+this.element.classList.remove("less");
+}
+}
+}
+
+</script>
+  
+				
